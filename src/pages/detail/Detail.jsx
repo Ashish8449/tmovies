@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import tmdbApi from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+// import apiConfig from '../../api/apiConfig';
+
 
 import './detail.scss';
 import CastList from './CastList';
 import VideoList from './VideoList';
 
 import MovieList from '../../components/movie-list/MovieList';
+import apiConfig from '../../api/apiConfig';
 
 const Detail = () => {
 
