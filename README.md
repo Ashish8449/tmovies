@@ -1,20 +1,35 @@
-# react-movie
+# Tmovie
+I have made this fully responsive movie website, which is based on TMDB API.
 
-    Responsive React Movies App With API
 
-# Video tutorial
 
-    https://youtu.be/ntYXj9W1Ez8
+This app holds -
 
-# Resource
 
-    Google font: https://fonts.google.com/
 
-    Boxicons: https://boxicons.com/
+⭐ Two threads available for both movies and TV shows
 
-    Images: https://unsplash.com/
 
-    API: https://www.themoviedb.org/
+
+⭐ Users can search for a movie/TV show using an input field
+
+
+
+⭐ Click on a movie/TV show to see more detailed information on a separate page
+
+
+
+⭐ Users can watch the trailer of the movie on same page .
+
+
+
+⭐ Completely responsive web page
+
+⭐  Responsive React Movies App With API
+    
+
+
+
 
 # Preview
 
