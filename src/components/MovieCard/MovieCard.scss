@@ -1,0 +1,116 @@
+@use "../../scss/" as *;
+
+.main_container {
+    height: 26rem;
+
+    background-color: #181818;
+    border-top-right-radius: $CardBorder-radius;
+    border-top-left-radius: $CardBorder-radius;
+    border-bottom-right-radius: $CardBorder-radius;
+    border-bottom-left-radius: $CardBorder-radius;
+
+    .movie-card {
+        position: relative;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 16.5rem;
+        border-top-left-radius: $CardBorder-radius;
+        border-top-right-radius: $CardBorder-radius;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        .btn {
+            position: absolute;
+            font-size: 1rem;
+            top: 8rem;
+            transform: scale(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-outline {
+            position: absolute;
+            top: 12rem;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            transform: scale(0);
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: $black;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-top-left-radius: $CardBorder-radius;
+            border-top-right-radius: $CardBorder-radius;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover::before {
+                opacity: 0.8;
+            }
+
+            &:hover .btn {
+                transform: scale(1);
+            }
+        }
+    }
+
+    .main_content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 1rem;
+        padding-top: 2.2rem;
+        .movie_name {
+            color: $white;
+            font-size: 1rem;
+            cursor: pointer;
+            @include tablet {
+                font-size: 1.3rem;
+            }
+            &:hover {
+                color: $main-color;
+            }
+        }
+        .releaseDate {
+            margin-top: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            color: $white;
+            @include tablet {
+                font-size: 1.1rem;
+            }
+        }
+        .rating {
+            cursor: pointer;
+            display: flex;
+            position: absolute;
+            top: -1.2rem;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: $body-bg;
+            color: $white;
+            font-weight: 600;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+    @include tablet {
+        height: 27rem;
+    }
+    @include mobile {
+    }
+}

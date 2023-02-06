@@ -11,7 +11,9 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
+    .portal {
+        position: absolute;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -64,6 +66,7 @@
             }
 
             .btns > * ~ * {
+                margin-top: 0.5rem;
                 margin-left: 1rem;
             }
 
@@ -78,6 +81,7 @@
 
         &__poster {
             flex: 1;
+
             @include flex(center, flex-start);
             position: relative;
 
@@ -85,7 +89,6 @@
                 width: 400px;
                 border-radius: $border-radius;
                 box-shadow: $box-shadow;
-
                 transform: scale(0);
                 transition: transform 0.7s ease;
             }
