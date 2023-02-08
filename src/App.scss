@@ -1,21 +1,18 @@
 @use "./scss/" as *;
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
-    padding: 0;
-    margin: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 
 html {
+    scroll-behavior: smooth;
     font-size: 100%;
-
     @include tablet {
         font-size: 80%;
     }
-
     @include mobile {
         font-size: 60%;
     }
@@ -25,10 +22,8 @@ body {
     font-family: $font-family;
     font-weight: 400;
     line-height: 1.5;
-
     background-color: $body-bg;
     color: $txt-color;
-
     @include mobile {
         margin-bottom: 3rem;
     }
@@ -37,10 +32,7 @@ body {
 a {
     text-decoration: none;
     color: unset;
-}
-
-@media (hover: hover) {
-    a:hover {
+    &:hover {
         color: $main-color;
     }
 }
@@ -63,14 +55,13 @@ iframe {
 }
 
 .container {
-    max-width: 1660px;
+    max-width: 1600px;
     margin: auto;
 }
 
 .mb-3 {
     margin-bottom: 3rem;
 }
-
 .mb-2 {
     margin-bottom: 2rem;
 }
@@ -81,4 +72,27 @@ iframe {
 
 .section__header {
     @include flex(center, space-between);
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    box-shadow: inset 0px 0px 7px 8px #181818;
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    -ms-border-radius: $border-radius;
+    -o-border-radius: $border-radius;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+    outline: none;
+    border-radius: $border-radius;
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    -ms-border-radius: $border-radius;
+    -o-border-radius: $border-radius;
 }

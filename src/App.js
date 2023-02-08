@@ -2,21 +2,31 @@ import "swiper/swiper.min.css";
 import "./assets/boxicons-2.0.7/css/boxicons.min.css";
 import "./App.scss";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-
-import Routes from "./config/Routes";
-
-function App() {
+import Routes from "./Config/Routes";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Loader from "./components/Loader/Loader";
+const App = () => {
+  const Navigation = useLocation();
+  console.log(Navigation);
+  const [Loaded, setLoaded] = useState(true);
+  useEffect(() => {
+    let timer = setTimeout(() => setLoaded(false), 3000);
+    return () => {
+      setLoaded(true);
+      clearTimeout(timer);
+    };
+  }, [Navigation.key]);
   return (
-    <BrowserRouter>
+    <React.Fragment>
       <Header />
-      <Routes />
+      {!Loaded ? <Routes /> : <Loader />}
       <Footer />
-    </BrowserRouter>
+    </React.Fragment>
   );
-}
+};
 
 export default App;

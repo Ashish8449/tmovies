@@ -1,120 +1,229 @@
 @use "../../scss/" as *;
 
 .banner {
-  height: 50vh;
-  position: relative;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+    height: 50vh;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    @include overlay();
-  }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include overlay();
+    }
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
-  }
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+    }
 }
 
 .movie-content {
-  @include flex(flex-start, flex-start);
-  max-width: 1260px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -200px;
-  position: relative;
-  padding: 0 2rem;
-
-  &__poster {
-    flex: 1;
-
-    @include mobile {
-      display: none;
-    }
-
-    &__img {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: $border-radius;
-      padding-top: 165%;
-    }
-  }
-
-  &__info {
-    width: 70%;
-    padding-left: 2rem;
+    @include flex(flex-start, flex-start);
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -200px;
     position: relative;
+    padding: 0 2rem;
 
-    @include mobile {
-      width: 100%;
-      padding-left: 0;
+    &__poster {
+        flex: 1;
+
+        @include mobile {
+            display: none;
+        }
+
+        &__img {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: $border-radius;
+            padding-top: 175%;
+            align-self: center;
+        }
     }
 
-    & > * {
-      margin-bottom: 2rem;
+    &__info {
+        width: 70%;
+        padding-left: 2rem;
+        position: relative;
+
+        @include mobile {
+            width: 100%;
+            padding-left: 0;
+        }
+
+        & > * {
+            margin-bottom: 2rem;
+        }
+
+        .title {
+            font-size: 4rem;
+            line-height: 1;
+        }
+
+        .genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            // & > * ~ * {
+            //     // margin-left: 0.5rem;
+            // }
+
+            &__item {
+                padding: 0.5rem 1.5rem;
+                border: 2px solid $white;
+                border-radius: $border-radius;
+                font-size: 0.8rem;
+                font-weight: 600;
+                cursor: pointer;
+                background-color: $body-bg;
+                &:hover {
+                    background-color: $main-color;
+                }
+            }
+        }
     }
-
-    .title {
-      font-size: 4rem;
-      line-height: 1;
-    }
-
-    .genres {
-      display: flex;
-      flex-wrap: wrap;
-
-      & > * ~ * {
-        margin-left: 0.5rem;
-      }
-
-      &__item {
-        padding: 0.5rem 1.5rem;
-        border: 2px solid $white;
-        border-radius: $border-radius;
-        font-size: 0.8rem;
-        font-weight: 600;
-        background-color: $body-bg;
-        margin-bottom: 5px;
-      }
-    }
-  }
 }
 
 .casts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  gap: 10px;
+    display: flex;
 
-  &__item {
-    &__img {
-      padding-top: 160px;
-      background-size: cover;
-      margin-bottom: 0.5rem;
+    overflow-x: scroll;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+    cursor: pointer;
+    gap: 1.5rem;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+        @include mobile {
+            display: none;
+        }
     }
 
-    &__name {
-      font-size: 0.8rem;
+    &::-webkit-scrollbar-track {
+        border-radius: $border-radius;
+        box-shadow: inset 0px 0px 7px 8px #181818;
+        -webkit-border-radius: $border-radius;
+        -moz-border-radius: $border-radius;
+        -ms-border-radius: $border-radius;
+        -o-border-radius: $border-radius;
     }
-  }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        outline: none;
+        border-radius: $border-radius;
+        -webkit-border-radius: $border-radius;
+        -moz-border-radius: $border-radius;
+        -ms-border-radius: $border-radius;
+        -o-border-radius: $border-radius;
+    }
+
+    &__item {
+        &__img {
+            border-radius: $CardBorder-radius;
+            width: 10rem;
+            height: 15rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 0.5rem;
+            -webkit-border-radius: $CardBorder-radius;
+            -moz-border-radius: $CardBorder-radius;
+            -ms-border-radius: $CardBorder-radius;
+            -o-border-radius: $CardBorder-radius;
+        }
+
+        &__name {
+            font-size: 1rem;
+        }
+    }
+}
+.Video_div {
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 1rem;
+    // padding-bottom: 1rem;
+    scroll-behavior: smooth;
+    gap: 5rem;
+    margin: auto auto;
+    &::-webkit-scrollbar {
+        width: 1rem;
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: $border-radius;
+
+        box-shadow: inset 0px 0px 7px 8px #181818;
+        -webkit-border-radius: $border-radius;
+        -moz-border-radius: $border-radius;
+        -ms-border-radius: $border-radius;
+        -o-border-radius: $border-radius;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        outline: none;
+        border-radius: $border-radius;
+        -webkit-border-radius: $border-radius;
+        -moz-border-radius: $border-radius;
+        -ms-border-radius: $border-radius;
+        -o-border-radius: $border-radius;
+    }
+    width: 80vw;
+    @include mobile {
+        width: 90vw;
+    }
+    .video {
+        width: 100%;
+
+        margin-bottom: 3rem;
+        &__title {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+.hide {
+    &::-webkit-scrollbar {
+        display: none;
+        @include mobile {
+            display: none;
+        }
+    }
+}
+.casts_span {
+    display: none;
+    @include mobile {
+        display: flex;
+        gap: 1rem;
+        font-size: 1rem;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        .swipe_icon {
+            color: $main-color;
+            font-size: 2rem;
+        }
+    }
 }
 
-.video {
-  margin-bottom: 3rem;
-
-  &__title {
-    margin-bottom: 1.5rem;
-  }
+.hidden {
+    display: none;
 }

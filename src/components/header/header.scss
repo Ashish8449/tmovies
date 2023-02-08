@@ -70,7 +70,16 @@
             &:hover::after {
                 width: 100%;
             }
+            .header__mobile{
+                display: none;
+            }
+            .header__desktop{
+                display: flex;
+            }
+            
         }
+
+     
 
         @include mobile {
             position: fixed;
@@ -87,6 +96,16 @@
             & > * ~ * {
                 margin-left: 0;
             }
+            li{
+                font-size: 2.7rem;
+                .header__mobile{
+                    display: flex;
+                }
+                .header__desktop{
+                    display: none;
+                }
+            }
+            
         }
     }
 }
